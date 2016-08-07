@@ -6,6 +6,9 @@ repositories {
     jcenter()
 }
 
+group = 'org.idyatlov.localization'
+version = '1.0.0-SNAPSHOT'
+
 gradlePlugin {
     plugins {
         localizationApiIntegrationPlugin {
@@ -13,4 +16,8 @@ gradlePlugin {
             implementationClass = "io.github.idyatlov.localization.LocalizationPlugin"
         }
     }
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
 }
