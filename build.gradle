@@ -1,23 +1,26 @@
-plugins {
-    id "java-gradle-plugin"
-}
-
-repositories {
-    jcenter()
-}
-
-group = 'org.idyatlov.localization'
-version = '1.0.0-SNAPSHOT'
+apply plugin: 'java-gradle-plugin'
+apply plugin: 'groovy'
 
 gradlePlugin {
     plugins {
-        localizationApiIntegrationPlugin {
-            id = "org.idyatlov.localization"
-            implementationClass = "io.github.idyatlov.localization.LocalizationPlugin"
+        simplePlugin {
+            id = "com.github.idyatlov.onesky-plugin"
+            implementationClass = "com.github.idyatlov.onesky.OneskyPlugin"
         }
     }
 }
 
 dependencies {
-    testCompile 'junit:junit:4.12'
+    testCompile localGroovy()
+    testCompile gradleTestKit()
+}
+
+dependencies {
+    testCompile('org.spockframework:spock-core:1.1-groovy-2.4-rc-3') {
+        exclude module: 'groovy-all'
+    }
+}
+
+repositories {
+    jcenter()
 }

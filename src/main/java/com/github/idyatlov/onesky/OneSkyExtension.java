@@ -1,10 +1,10 @@
 /*
- * Copyright 2016 Ivan Dyatlov
+ * Copyright 2017 Ivan Dyatlov
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
  *
+ * You may obtain a copy of the License at
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
@@ -14,23 +14,20 @@
  * limitations under the License.
  */
 
-package io.github.idyatlov.localization;
-
-import java.io.File;
-import java.util.List;
+package com.github.idyatlov.onesky;
 
 /**
- * Created by Jedo on 08.08.2016.
+ * Created by Ivan Dyatlov on 08.08.2016.
  */
-public class OneskyConfigExtension {
+public class OneSkyExtension {
 
-  private String publicKey;
+  String publicKey;
 
-  private String secretKey;
+  String secretKey;
 
-  private String projectId;
+  String projectId;
 
-  private List<File> files;
+  String toTranslate;
 
   public String getPublicKey() {
     return publicKey;
@@ -56,11 +53,17 @@ public class OneskyConfigExtension {
     this.projectId = projectId;
   }
 
-  public List<File> getFiles() {
-    return files;
+  public String getToTranslate() {
+    return toTranslate;
   }
 
-  public void setFiles(List<File> files) {
-    this.files = files;
+  public void setToTranslate(String toTranslate) {
+    this.toTranslate = toTranslate;
+  }
+
+  @Override
+  public String toString() {
+    return "OneSkyExtension{" + "publicKey='" + publicKey + '\'' + ", secretKey='" + secretKey
+        + '\'' + ", projectId='" + projectId + '\'';
   }
 }

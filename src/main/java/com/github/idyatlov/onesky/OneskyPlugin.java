@@ -1,10 +1,10 @@
 /*
- * Copyright 2016 Ivan Dyatlov
+ * Copyright 2017 Ivan Dyatlov
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
  *
+ * You may obtain a copy of the License at
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package io.github.idyatlov.localization;
+package com.github.idyatlov.onesky;
 
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 
-public class InternationalizationPlugin implements Plugin<Project> {
+public class OneskyPlugin implements Plugin<Project> {
 
-  public static final String EXTENSION = "onesky";
-  public static final String EXPORT = "export";
+  static final String ONESKY = "onesky";
+  private static final String EXPORT = "export";
 
   @Override
   public void apply(Project project) {
-    project.getExtensions().create(EXTENSION, OneskyConfigExtension.class);
-    project.getTasks().maybeCreate(EXPORT, ExportLanguageTask.class);
+    project.getExtensions().create(ONESKY, OneSkyExtension.class);
+    project.getTasks().create(EXPORT, ExportLanguageTask.class);
   }
 }

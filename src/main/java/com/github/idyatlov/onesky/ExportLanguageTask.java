@@ -14,41 +14,28 @@
  * limitations under the License.
  */
 
-package io.github.idyatlov.localization;
+package com.github.idyatlov.onesky;
 
+import java.io.File;
+import org.gradle.api.file.FileCollection;
 import org.gradle.api.tasks.InputFiles;
 import org.gradle.api.tasks.OutputDirectory;
 import org.gradle.api.tasks.TaskAction;
-import org.gradle.api.tasks.incremental.IncrementalTaskInputs;
-
-import java.io.File;
-import java.util.List;
 
 /**
- * Created by Jedo on 16.08.2016.
+ * Created by Ivan Dyatlov on 16.08.2016.
  */
 public class ExportLanguageTask extends BaseTask {
 
   @InputFiles
-  private List<File> getInputFiles() {
-    return inputFiles;
-  }
+  FileCollection inputFiles;
 
   @OutputDirectory
   File outputDirectory;
 
   @TaskAction
-  protected void execute(IncrementalTaskInputs incrementalTaskInputs) {
-
+  public void export() {
     init();
-
-    if (!incrementalTaskInputs.isIncremental()) {
-      getProject().delete(outputDirectory.listFiles());
-    }
-
-    incrementalTaskInputs.outOfDate(inputFileDetails -> {
-
-    });
   }
 
 
